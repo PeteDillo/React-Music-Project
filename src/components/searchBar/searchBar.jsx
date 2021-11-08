@@ -40,12 +40,13 @@ class FilterSearch extends Component {
     
     render () {
       return (
-        <div className="searchBar">
-            <div class="row">
+        <div>
+            <div>
                 <form onSubmit={this.handleSubmit}>
                     <input placeholder="Search" name="searchWord" title="search" type="text" value={this.state.searchWord} onChange={this.handleChange} />
                     <button type='submit' value="search">Submit</button>
                 </form>
+                <button onClick={this.props.refresh}>Refresh List</button>
             </div>
          </div>
       );

@@ -1,49 +1,61 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 
 
 
 class SongForm extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
-            this.state = {
-                id: '',
-                title: '',
-                album: '',
-                artist: '',
-                genre: '',
-                release_date: '',
-            }
-        }
-
+        this.state = {
+            title: '',
+            artist: '',
+            album: '',
+            release_date: '',
+            genre: ''
+        };
+    }
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
-    }
-
+    };
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.createNewSong(this.state)
-    }
-    
-    render() {
-        return (
-            <div className="form">
+        let song = {
+            title: this.state.title,
+            artist: this.state.artist,
+            album: this.state.album,
+            release_date: this.state.release_date,
+            genre: this.state.genre,
+        }
+        this.props.addSong(song);
+        this.setState({
+            title: '',
+            artist: '',
+            album: '',
+            release_date: '',
+            genre: '',
+
+        });
+    };
+
+    render(){
+        return(
+            <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Song Title:</label>
-                    <input name='title' onChange={this.handleChange} value={this.state.title}/>
-                    <label>Album:</label>
-                    <input name='album' onChange={this.handleChange} value={this.state.album}/>
-                    <label>Artist:</label>
-                    <input name='artist' onChange={this.handleChange} value={this.state.artist}/>
-                    <label>Genre:</label>
-                    <input name='genre' onChange={this.handleChange} value={this.state.genre}/>
-                    <label>Release Date:</label>
+                    <label>Title</label>
+                    <input name='title' type="text" onChange={this.handleChange} value={this.state.title}></input>
+                    <label>Artist</label>
+                    <input name='artist' type="text" onChange={this.handleChange} value={this.state.artist}></input>
+                    <label>Album</label>
+                    <input name='album' type="text" onChange={this.handleChange} value={this.state.album}></input>
+                    <label>Release Date</label>
                     <input name='release_date' type="date" onChange={this.handleChange} value={this.state.release_date}></input>
-                    <button type="submit">Create Song</button>
+                    <label>Genre</label>
+                    <input name='genre' type="text" onChange={this.handleChange} value={this.state.genre}></input>
+                    <button type='submit' onClick={this.addSong}>Add Song</button>
                 </form>
             </div>
-        )
+        );
     }
 }
 

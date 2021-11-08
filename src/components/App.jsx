@@ -28,9 +28,9 @@ class App extends Component {
         }
     }
 
-    deleteSong = async (song) =>{
+    deleteSong = async (id) =>{
         try{
-            await axios.post("http://127.0.0.1:8000/music/", song);
+            await axios.delete(`http://127.0.0.1:8000/music/${id}/`);
             this.makeGetRequest()
         }
         catch (error) {
@@ -38,23 +38,19 @@ class App extends Component {
         }
     }
 
-    createSong = async (newSong) => {
+    addSong = async (newSong) => {
         try{
-            await axios.post("http://127.0.0.1:8000/music/", newSong);
-            this.getMusic()
+            let response = await axios.post(`http://127.0.0.1:8000/music/`, newSong);
+            this.setState({
+                song: response.data
+            });
+            this.makeGetRequest()
         }
         catch (error) {
             console.log('Error in Create API call!');
         }
 
     }
-    
-    getMusic = async () => {
-        let response = await axios.get("http://127.0.0.1:8000/music/");
-        this.setState({
-            musicList: response.data
-        });
-     }
 
    filterSongs = (filtered) => {
        this.setState({
@@ -65,9 +61,9 @@ class App extends Component {
     render() {
         return (
             <div>
-                 <FilterSearch search={this.state.songs} filterAction={this.filterSongs}/>
+                 <FilterSearch search={this.state.songs} filterAction={this.filterSongs} refresh={this.makeGetRequest}/>
                  <MusicTable song={this.state.songs} deleteSong={this.deleteSong}/>
-                 <SongForm createNewSong={this.createSong}/>
+                 <SongForm addSong={this.addSong.bind(this)}/>
             </div>
         );
     }
