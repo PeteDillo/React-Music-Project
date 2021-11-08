@@ -28,9 +28,6 @@ class FilterSearch extends Component {
             if (song.genre.toLowerCase().includes(this.state.searchWord.toLowerCase())){
                 return song
             }
-            if (song.release_date.toLowerCase().includes(this.state.searchWord.toLowerCase())){
-                return song
-            }
             else{
                 return false
             }

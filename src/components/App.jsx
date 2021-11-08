@@ -18,7 +18,6 @@ class App extends Component {
     async makeGetRequest(){
         try{
             let response = await axios.get('http://127.0.0.1:8000/music/');
-            //let allsongs = response.data
             this.setState({
                 songs:response.data
             });
@@ -37,7 +36,7 @@ class App extends Component {
             console.log('Error in Delete API call!');
         }
     }
-    
+
     async addSong(song){
         try{
             let response = await axios.post(`http://127.0.0.1:8000/music/`, song)
