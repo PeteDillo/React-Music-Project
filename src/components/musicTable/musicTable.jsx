@@ -36,11 +36,11 @@ const MusicTable = (props) => {
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td><button className="refreshButton">Button</button></td>
-                        <td><button className="refreshButton">Button</button></td>
-                        <td><button className="refreshButton">Button</button></td>
-                        <td><button className="refreshButton">Button</button></td>
-                        <td><button className="refreshButton">Button</button></td>
+                        <td><button className="refreshButton">Filter By </button></td>
+                        <td><button className="refreshButton">Filter By </button></td>
+                        <td><button className="refreshButton">Filter By </button></td>
+                        <td><button className="refreshButton">Filter By </button></td>
+                        <td><button className="refreshButton">Filter By </button></td>
                     </tr>
                 </tfoot>
             </table>
