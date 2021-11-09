@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./songForm.css" 
 
 
 class SongForm extends Component {
@@ -42,16 +42,16 @@ class SongForm extends Component {
         return(
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Title</label>
-                    <input name='title' type="text" onChange={this.handleChange} value={this.state.title}></input>
-                    <label>Artist</label>
-                    <input name='artist' type="text" onChange={this.handleChange} value={this.state.artist}></input>
-                    <label>Album</label>
-                    <input name='album' type="text" onChange={this.handleChange} value={this.state.album}></input>
-                    <label>Release Date</label>
-                    <input name='release_date' type="date" onChange={this.handleChange} value={this.state.release_date}></input>
-                    <label>Genre</label>
-                    <input name='genre' type="text" onChange={this.handleChange} value={this.state.genre}></input>
+                    <label>Title</label><br/>
+                    <input name='title' type="text" onChange={this.handleChange} value={this.state.title}></input><br/>
+                    <label>Artist</label><br/>
+                    <input name='artist' type="text" onChange={this.handleChange} value={this.state.artist}></input><br/>
+                    <label>Album</label><br/>
+                    <input name='album' type="text" onChange={this.handleChange} value={this.state.album}></input><br/>
+                    <label>Release Date</label><br/>
+                    <input name='release_date' type="datetime-local" onChange={this.handleChange} value={this.state.release_date}></input><br/>
+                    <label>Genre</label><br/>
+                    <input name='genre' type="text" onChange={this.handleChange} value={this.state.genre}></input><br/>
                     <button type='submit' onClick={this.addSong}>Add Song</button>
                 </form>
             </div>

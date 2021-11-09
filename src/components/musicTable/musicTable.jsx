@@ -4,7 +4,7 @@ import './musicTable.css'
 const MusicTable = (props) => {
     return (
         <center>
-        <div>
+        <div class="container">
             <table class="table">
                 <thead>
                     <tr>
@@ -26,7 +26,7 @@ const MusicTable = (props) => {
                             <td>{songs.release_date}</td>
                             <td>{songs.genre}</td>
                             <td>
-                            <button onClick={() => props.deleteSong(songs.id)}>
+                            <button className="DeleteButton"onClick={() => props.deleteSong(songs.id)}>
                                 Delete
                             </button>  
                             </td>
@@ -34,6 +34,15 @@ const MusicTable = (props) => {
                     );
                     })}
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td><button className="refreshButton">Button</button></td>
+                        <td><button className="refreshButton">Button</button></td>
+                        <td><button className="refreshButton">Button</button></td>
+                        <td><button className="refreshButton">Button</button></td>
+                        <td><button className="refreshButton">Button</button></td>
+                    </tr>
+                </tfoot>
             </table>
         </div>
         </center>
