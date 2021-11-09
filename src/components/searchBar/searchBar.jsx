@@ -44,9 +44,9 @@ class FilterSearch extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <input placeholder="Search" name="searchWord" title="search" type="text" value={this.state.searchWord} onChange={this.handleChange} />
-                    <button type='submit' value="search">Submit</button>
+                    <button  type='submit' value="search">Submit</button>
                 </form>
-                <button onClick={this.props.refresh}>Refresh List</button>
+                <button className='button' onClick={this.props.refresh}>Refresh List</button>
             </div>
          </div>
       );
