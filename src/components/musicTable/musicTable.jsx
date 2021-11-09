@@ -37,6 +37,7 @@ const MusicTable = (props) => {
                 <tfoot>
                     <tr>
                         <td><button className="refreshButton">Filter By </button></td>
+                        {/* I didn't get to finish but it was going to be an onClick= runfilter and that would take the current data and filter the array in either way */}
                         <td><button className="refreshButton">Filter By </button></td>
                         <td><button className="refreshButton">Filter By </button></td>
                         <td><button className="refreshButton">Filter By </button></td>
